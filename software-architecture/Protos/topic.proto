@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "software_architecture";
+
+package softwarearchitecture;
+
+message GetExerciseRequest {
+  string id = 1;
+}
+
+message ExerciseExample {
+  string title = 1;
+  string code = 2;
+}
+
+message ExerciseResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string category = 4;
+  string categoryName = 5;
+  repeated string concepts = 6;
+  string objective = 7;
+  repeated string requirements = 8;
+  repeated string hints = 9;
+  repeated ExerciseExample examples = 10;
+}
+
+service Exercise {
+  rpc GetExercise(GetExerciseRequest) returns (ExerciseResponse);
+}
